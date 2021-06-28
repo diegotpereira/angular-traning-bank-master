@@ -14,6 +14,7 @@ import { HomeLogadaComponent } from './home-logada/home-logada.component';
 import { AuthGuard } from 'auth.guard';
 import { AuthService } from 'auth.service';
 import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,10 @@ import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
     MatDialogModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthService
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

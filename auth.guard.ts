@@ -5,7 +5,7 @@ import { CanActivate, Router } from '@angular/router';
 @Injectable()
 export class AuthGuard implements CanActivate{
 
-  base_url: string;
+  base_url: string | undefined;
 
   constructor(
     private authService: AuthService,

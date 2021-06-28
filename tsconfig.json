@@ -20,12 +20,14 @@
       "es2018",
       "dom"
     ],
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictPropertyInitialization": true
   }
 }
