@@ -5,6 +5,7 @@ import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes
 import { HomeLogadaComponent } from './home-logada/home-logada.component';
 import { AuthGuard } from 'auth.guard';
 import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
+import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-concluido.component';
 
 const routes: Routes = [
 
@@ -22,6 +23,10 @@ const routes: Routes = [
 
   {
     path: 'acesso-negado', component: AcessoNegadoComponent
+  },
+
+  {
+    path: 'cadastro-concluido', component: CadastroConcluidoComponent
   }
 ];
 

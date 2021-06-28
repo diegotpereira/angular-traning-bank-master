@@ -11,13 +11,16 @@ import { Router } from '@angular/router';
 export class CadastroClientesComponent implements OnInit {
 
   formCadastro;
-  valoresForm!: Object;
+  valoresForm: Object | undefined;
   conversao;
 
   constructor(
     private fb: FormBuilder,
+
     private router: Router) { }
+
   ngOnInit() {
+    localStorage.clear();
     this.formCadastro = this.fb.group({
       nome: [''],
       cpf: [''],
@@ -25,7 +28,7 @@ export class CadastroClientesComponent implements OnInit {
       telefone: [''],
       endereco: ['']
     });
-    console.log(this.valoresForm);
+    //console.log(this.valoresForm);
 
     this.formCadastro.valueChanges.pipe(
       debounceTime(1000))
@@ -38,5 +41,19 @@ export class CadastroClientesComponent implements OnInit {
     this.conversao = JSON.stringify(this.valoresForm);
     console.log(this.conversao);
     localStorage.setItem('cadastro', this.conversao);
+
+    //verificar modal aqui
+    this.verificaCadastro();
+  }
+  verificaCadastro() {
+
+    setTimeout(()=>{
+      if (localStorage.getItem('cadastro')) {
+        // TODO REDIRECIIONAR PARA PAGINA DE CADASTRO CONCLUIDO
+        this.router.navigate(['cadastro-concluido']);
+      } else {
+        return false;
+      }
+ }, 200);
   }
 }
