@@ -20,5 +20,7 @@ export class CadastroClientesComponent implements OnInit {
       endereco: ['']
     });
   }
-  cadastro(){}
+  cadastro(){
+    console.log(this.formCadastro.controls);
+  }
 }
