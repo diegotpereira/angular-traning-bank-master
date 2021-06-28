@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-cadastro-clientes',
   templateUrl: './cadastro-clientes.component.html',
@@ -8,19 +11,32 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class CadastroClientesComponent implements OnInit {
 
   formCadastro;
+  valoresForm!: Object;
+  conversao;
 
-  constructor(private fb: FormBuilder) { }
-
+  constructor(
+    private fb: FormBuilder,
+    private router: Router) { }
   ngOnInit() {
     this.formCadastro = this.fb.group({
       nome: [''],
       cpf: [''],
-      emai: [''],
+      email: [''],
       telefone: [''],
       endereco: ['']
     });
+    console.log(this.valoresForm);
+
+    this.formCadastro.valueChanges.pipe(
+      debounceTime(1000))
+      .subscribe(res => {
+        console.log(res);
+        this.valoresForm = res;
+      });
   }
   cadastro(){
-    console.log(this.formCadastro.controls);
+    this.conversao = JSON.stringify(this.valoresForm);
+    console.log(this.conversao);
+    localStorage.setItem('cadastro', this.conversao);
   }
 }

@@ -10,14 +10,19 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HomeLogadaComponent } from './home-logada/home-logada.component';
+import { AuthGuard } from 'auth.guard';
+import { AuthService } from 'auth.service';
+import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    CadastroClientesComponent
+    CadastroClientesComponent,
+    HomeLogadaComponent,
+    AcessoNegadoComponent
   ],
   imports: [
     BrowserModule,
