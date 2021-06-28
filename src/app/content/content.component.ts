@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import * as Tped from 'typed.js';
+import Typed from 'typed.js';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -7,18 +9,26 @@ import * as Tped from 'typed.js';
 })
 export class ContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private  router: Router) { }
 
-  ngOnInit(): void {
-
+  ngOnInit(){
     const options = {
       stringsElement: '#typed-strings',
-      strings: ['Traning banking juros amigo', 'Peça a portabilidade e venha ser Training banking hoje mesmo', 'Inovador digital e seguro'],
-      typedSpeed: 100,
+      strings: ['Traning banking juros amigo', 'Peça a portabilidade e venha ser Traning Bankinhg hoje mesmo', 'Inovavor digital e seguro'],
+      typeSpeed: 100,
       backSpeed: 100,
       backDelay: 200,
       smartBackspace: true,
-    }
+      fadeOut: true,
+      showCursor: false,
+      startDelay: 1000,
+      loop: true
+    };
+    const typed = new Typed('.typing-element', options);
+    localStorage.removeItem('cadastro');
   }
 
+    goToCadastroClientes(){
+      this.router.navigate (['cadastro-clientes']);
+    }
 }

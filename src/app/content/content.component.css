@@ -40,3 +40,23 @@
     background: url('https://github.com/diegotpereira/angular-traning-bank-master');
     background-size: cover;
 }
+
+.btn-home-cadastro-clientes {
+
+    position: absolute !important;
+    
+    top: 390px;
+    
+    padding: 20px;
+    
+    font-size: 25px;
+    
+    width: 40%;
+    
+    background: #000;
+    
+    color: #fff;
+    
+    border: 2px solid;
+    
+    }
