@@ -17,6 +17,8 @@ import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-concluido.component';
 import { LoginComponent } from './login/login.component';
 import { ModalNotCadastroComponent } from './modal-not-cadastro/modal-not-cadastro.component';
+import { InvestirComponent } from './investir/investir.component';
+import { PainelInvestirComponent } from './painel-investir/painel-investir.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { ModalNotCadastroComponent } from './modal-not-cadastro/modal-not-cadast
     AcessoNegadoComponent,
     CadastroConcluidoComponent,
     LoginComponent,
-    ModalNotCadastroComponent
+    ModalNotCadastroComponent,
+    InvestirComponent,
+    PainelInvestirComponent
   ],
   imports: [
     BrowserModule,

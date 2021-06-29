@@ -8,6 +8,9 @@ import { AuthGuard } from 'auth.guard';
 import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-concluido.component';
 import { LoginComponent } from './login/login.component';
+import { InvestirComponent } from './investir/investir.component';
+import { PainelInvestirComponent } from './painel-investir/painel-investir.component';
+
 const routes: Routes = [
 
   {
@@ -32,6 +35,14 @@ const routes: Routes = [
   {
     path: 'login', component: LoginComponent
   },
+
+  {
+    path: 'investimentos', component: InvestirComponent
+  },
+
+  {
+    path: 'painel-investir', component: PainelInvestirComponent
+  }
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalidadesService } from '../modalidades.service';
+import { UserService } from '../UserService';
 
 @Component({
   selector: 'app-home-logada',
@@ -12,22 +14,23 @@ export class HomeLogadaComponent implements OnInit {
   nameCliente;
   modalidade;
   constructor(
-    private router: Router
+    private router: Router,
+    private modalidadeService: ModalidadesService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
     this.getCadastro = JSON.parse(localStorage.getItem('cadastro')!);
     this.nameCliente = this.getCadastro['nome'];
-
     console.log(this.nameCliente);
 
-    //this.modalidade = this.modalidadeService.getModalidade();
-
+    this.modalidade = this.modalidadeService.getModalidade();
     console.log(this.modalidade);
   }
 
   investment(id){
-this.router.navigate(['painel-investir']);
+    this.userService.setProduct(id);
+      this.router.navigate(['painel-investir']);
   }
 
 }
