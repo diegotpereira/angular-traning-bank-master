@@ -16,7 +16,7 @@ export class HomeLogadaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //this.getCadastro = JSON.parse(localStorage.getItem('cadastro'));
+    this.getCadastro = JSON.parse(localStorage.getItem('cadastro')!);
     this.nameCliente = this.getCadastro['nome'];
 
     console.log(this.nameCliente);
