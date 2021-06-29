@@ -16,6 +16,7 @@ import { AuthService } from 'auth.service';
 import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-concluido.component';
 import { LoginComponent } from './login/login.component';
+import { ModalNotCadastroComponent } from './modal-not-cadastro/modal-not-cadastro.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { LoginComponent } from './login/login.component';
     HomeLogadaComponent,
     AcessoNegadoComponent,
     CadastroConcluidoComponent,
-    LoginComponent
+    LoginComponent,
+    ModalNotCadastroComponent
   ],
   imports: [
     BrowserModule,

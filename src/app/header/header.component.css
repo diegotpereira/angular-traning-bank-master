@@ -13,15 +13,6 @@
     padding: 0px;
 }
 
-.acessar-conta{
-    position: relative;
-    top: -40px;
-    background-color: #fff;
-    border: 0;
-    color: #333;
-    right: -80%;
-}
-
 @media screen and (min-width: 600px){
     .wrapper-header{
         height: 15vh;
@@ -36,6 +27,7 @@
         font-size: 18px;
     }
 }
-.text-input{
-    width:370px
-  }
+.position-login {
+  position: relative;
+  top: -152px;
+}

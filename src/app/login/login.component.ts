@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { ModalNotCadastroComponent } from '../modal-not-cadastro/modal-not-cadastro.component';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private dialog: MatDialog
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(){
@@ -30,10 +31,11 @@ export class LoginComponent implements OnInit {
     });
   }
   onlynumber(evt){
+    // tslint:disable-next-line: deprecation
     this.theEvent = evt || window.event;
     this.key = this.theEvent.keyCode || this.theEvent.which;
     this.key = String.fromCharCode(this.key);
-    this.regex = /^[0-9]+$/;
+    this.regex = /^[0-9.]+$/;
     if (!this.regex.test(this.key)) {
       this.theEvent.returnValue = false;
 
@@ -44,7 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.getCadastro = JSON.parse(localStorage.getItem('cadastro'));
+    this.getCadastro = JSON.parse(localStorage.getItem('cadastro') || '{}');
     const cpfPersistido = this.getCadastro['cpf'];
     const cpfDigitado = this.formLogin.get('cpf').value;
 
@@ -53,17 +55,16 @@ export class LoginComponent implements OnInit {
     } else {
       this.openDialog();
     }
+  }
+  openDialog() {
 
-    openDialog() {
+    const dialogRef = this.dialog.open(ModalNotCadastroComponent, {
+      height: '350px'
+    });
 
-      const dialogRef = this.dialog.open(ModalNotCadastroComponent, {
-        height: '350px'
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('Dialog result: ${result}');
-      });
-    }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog result: ${result}');
+    });
   }
 
 }
