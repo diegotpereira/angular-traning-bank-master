@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
     });
   }
   onlynumber(evt){
-    // tslint:disable-next-line: deprecation
     this.theEvent = evt || window.event;
     this.key = this.theEvent.keyCode || this.theEvent.which;
     this.key = String.fromCharCode(this.key);
